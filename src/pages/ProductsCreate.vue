@@ -71,11 +71,21 @@
 
           </div>
         </b-row>
+
+         <el-input-number v-model="form.inStock" :step="1"></el-input-number>
         
             <b-form-group id="input-group-content" label="Description:" label-for="input-content">
           <ckeditor :editor="editor" v-model="form.content" ></ckeditor>
           </b-form-group>
-        
+
+
+          <el-badge :value="200" :max="99" class="item">
+  <el-button size="small">comments</el-button>
+</el-badge>
+<el-badge :value="100" :max="10" class="item">
+  <el-button size="small">replies</el-button>
+</el-badge>
+<!--         
                <b-form-group id="input-group-tags" label="Product Tags:" label-for="input-tags">
                <tags-input element-id="tags" 
     v-model="form.tags"
@@ -85,8 +95,35 @@
         { key: 'javascript', value: 'JavaScript' },
     ]"
     :typeahead="true"></tags-input>
-          </b-form-group>
+          </b-form-group> -->
 
+
+          <el-tag
+  :key="tag"
+  v-for="tag in dynamicTags"
+  closable
+  :disable-transitions="false"
+  @close="handleClose(tag)">
+  {{tag}}
+</el-tag>
+<el-input
+  class="input-new-tag"
+  v-if="inputVisible"
+  v-model="inputValue"
+  ref="saveTagInput"
+  size="mini"
+  @keyup.enter.native="handleInputConfirm"
+  @blur="handleInputConfirm"
+>
+</el-input>
+<el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
+
+
+  <el-button
+    plain
+    @click="open">
+    Notification with offset
+  </el-button>
 
 
       </b-col>
@@ -102,6 +139,7 @@
           <div class="card-footer bg-transparent">
             <button class="btn btn-primary btn-sm" type="submit">Publish</button>
           </div>
+          
         </div>
       </div>
     </b-row>
@@ -123,6 +161,7 @@ export default {
         price: "",
         sku: "",
         category: null,
+         inStock: 5,
         content: 'Write Something',
         checked: [],
           tags: [
@@ -130,6 +169,9 @@ export default {
             { key: 'php', value: 'PHP' },
             { key: 'javascript', value: 'JavaScript' },
         ],
+         dynamicTags: ['Tag 1', 'Tag 2', 'Tag 3'],
+        inputVisible: false,
+        inputValue: ''
       },
       
       categories: [
@@ -156,7 +198,38 @@ export default {
         }
       
        ]
-    }
+    },
+
+     open() {
+        this.$notify.success({
+          title: 'Success',
+          message: 'This is a success message',
+          offset: 100
+        });
+      },
+
+         handleClose(tag) {
+        this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
+      },
+
+      showInput() {
+        this.inputVisible = true;
+        this.$nextTick(_ => {
+          this.$refs.saveTagInput.$refs.input.focus();
+        });
+      },
+
+      handleInputConfirm() {
+        let inputValue = this.inputValue;
+        if (inputValue) {
+          this.dynamicTags.push(inputValue);
+        }
+        this.inputVisible = false;
+        this.inputValue = '';
+      }
+
+ 
+  
 
   }
 };
@@ -165,4 +238,20 @@ export default {
   .ck-editor__editable {
     min-height: 350px;
    }
+
+    .el-tag + .el-tag {
+    margin-left: 10px;
+  }
+  .button-new-tag {
+    margin-left: 10px;
+    height: 32px;
+    line-height: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .input-new-tag {
+    width: 90px;
+    margin-left: 10px;
+    vertical-align: bottom;
+  }
 </style>

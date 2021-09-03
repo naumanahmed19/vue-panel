@@ -34,17 +34,46 @@
     ]
   },
   {
-    "name": "xxx",
-    "icon": "icon icon-package",
-    "route": "/dashboard",
-    "badge": 9
+    "name": "Inbox",
+    "icon": "icon-package s-24",
+    "children": [
+      {
+        "name": "Inbox",
+        "route": "/inbox",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Inbox 2",
+        "route": "/inbox2",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Compose",
+        "route": "/compose",
+        "icon": "icon-circle-o"
+      }
+    ]
   },
   {
-    "name": "pp",
-    "icon": "icon icon-package",
-    "route": "/products",
-    "badge": 4,
-    "badgeClass": "badge-success"
+    "name": "Apps",
+    "icon": "icon-account_box s-24",
+    "children": [
+      {
+        "name": "All Users",
+        "route": "/users",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Add User",
+        "route": "/users/create",
+        "icon": "icon-add"
+      },
+      {
+        "name": "User Profile",
+        "route": "/user/1",
+        "icon": "icon-user"
+      }
+    ]
   },
   {
     "name": "Pages",
@@ -60,6 +89,92 @@
         "name": "Tabs Page",
         "route": "/blank-tabs",
         "icon": "icon-add"
+      }
+    ]
+  },
+  {
+    "name": "Elements",
+    "icon": "icon icon-goals-1",
+    "badge": 4,
+    "badgeClass": "badge-success",
+    "children": [
+      {
+        "name": "Button",
+        "route": "/buttons",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Counters",
+        "route": "/counters",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Color Picker",
+        "route": "/color-picker",
+        "icon": "icon-circle-o"
+      }
+    ]
+  },
+  {
+    "name": "Forms & Plugins",
+    "icon": "icon icon-wpforms",
+    "children": [
+      {
+        "name": "Button",
+        "route": "/buttons",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Counters",
+        "route": "/counters",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Color Picker",
+        "route": "/color-picker",
+        "icon": "icon-circle-o"
+      }
+    ]
+  },
+  {
+    "name": "Charts",
+    "icon": "icon icon-bar-chart2",
+    "children": [
+      {
+        "name": "Button",
+        "route": "/buttons",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Counters",
+        "route": "/counters",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Color Picker",
+        "route": "/color-picker",
+        "icon": "icon-circle-o"
+      }
+    ]
+  },
+  {
+    "name": "Extra",
+    "icon": "icon icon-dialpad",
+    "children": [
+      {
+        "name": "Button",
+        "route": "/buttons",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Counters",
+        "route": "/counters",
+        "icon": "icon-circle-o"
+      },
+      {
+        "name": "Color Picker",
+        "route": "/color-picker",
+        "icon": "icon-circle-o"
       }
     ]
   }

@@ -1,6 +1,7 @@
 
 <template>
   <div>
+    <!--Top Section-->
     <b-row class="row-eq-height my-3 mt-3">
       <b-col class="col-md-6">
         <b-row>
@@ -86,6 +87,7 @@
         </b-card>
       </b-col>
     </b-row>
+    <!--Middle Section-->
     <b-card class="no-b my-3">
       <bar-chart
         cssClasses="my-2 height-300"
@@ -106,15 +108,19 @@
                   :subtitle="task.subtitle"
                   :image="assetsPath(task.team.u1)"
                 />
-            
-                <b-progress :value="task.progress" :variant="task.variant" class="mb-3"  height=".25rem"></b-progress>
+                <b-progress
+                  :value="task.progress"
+                  :variant="task.variant"
+                  class="mb-3"
+                  height=".25rem"
+                ></b-progress>
               </b-col>
             </b-row>
           </b-col>
         </b-row>
       </div>
     </b-card>
-
+    <!--Bottom Section-->
     <b-row class="row my-3">
       <b-col class="col-md-6">
         <b-card class="b-0">
@@ -135,7 +141,7 @@
                 <tr class="no-b" v-for="employe in json.employees" :key="employe.id">
                   <td class="w-10">
                     <a href="panel-page-profile.html" class="avatar avatar-lg">
-                      <img :src="assetsPath(employe.image)" alt="" />
+                      <img :src="assetsPath(employe.image)" alt />
                     </a>
                   </td>
                   <td>
@@ -162,9 +168,9 @@ import {
 import chartsData from "../assets/data/charts.js";
 import jsonData from "../assets/json/dashboard.json";
 import list from "../components/x-list";
-import mixins from '../helpers/mixins.js'
+import mixins from "../helpers/mixins.js";
 export default {
-     mixins: [mixins],
+  mixins: [mixins],
   components: {
     LineChart,
     BarChart,
@@ -174,17 +180,8 @@ export default {
   data() {
     return {
       chartsData,
-      json:jsonData
+      json: jsonData
     };
-  },
-  methods: {
-       
-  },
-  computed:{
- 
-  },
-
+  }
 };
 </script>
-<style>
-</style>

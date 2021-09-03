@@ -1,7 +1,7 @@
 <template>
   <div class="sticky white shadow">
     <div class="navbar navbar-expand d-flex justify-content-between bd-navbar">
-      <Title></Title>
+      <Title />
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <MessagesDropDown :data="dummyData.employees" />
@@ -20,7 +20,7 @@
         </ul>
       </div>
     </div>
-    <TabsNav />
+    <!-- <TabsNav /> -->
   </div>
 </template>
 <script>

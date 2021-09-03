@@ -9,6 +9,14 @@ import UserProfile from "@/pages/UserProfile.vue";
 import BlankPage from "@/pages/BlankPage.vue";
 import TabsPage from "@/pages/TabsPage.vue";
 import TabsPageChild1 from "@/pages/TabsPageChild1.vue";
+
+
+import ColorPickerElement from "@/pages/elements/colorPicker";
+
+import ButtonElement from "@/pages/elements/buttons";
+import CounterElement from "@/pages/elements/counters";
+
+
 // import TableList from "@/pages/TableList.vue";
 // import Typography from "@/pages/Typography.vue";
 // import Icons from "@/pages/Icons.vue";
@@ -57,6 +65,22 @@ const routes = [
         }
     },
     {
+        path: '/buttons',
+        name: 'Buttons',
+        component: ButtonElement,
+      },
+      {
+          path: '/counters',
+          name: 'Counters',
+          component: CounterElement,
+      },
+      {
+      path: '/color-picker',
+      name: 'Color Picker',
+      component: ColorPickerElement,
+      },
+    
+    {
         path: "/blank-tabs",
         name: "Blank Tab Page",
       // redirect: "/blank-tabs/tab1",
@@ -82,7 +106,8 @@ const routes = [
                 component: TabsPageChild1,
               }
           ]
-    }
+    },
+   
     
 ];
 
